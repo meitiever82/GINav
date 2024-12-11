@@ -55,7 +55,8 @@ function GINavPlot_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to GINavPlot (see VARARGIN)
 
 H=get(0,'ScreenSize'); h=get(gcf,'Position');
-x=H(3)/2-h(3)/2; y=H(4)/2-h(4)/2; h(1)=x; h(2)=y;
+x=H(3)/2-h(3)/2; y=H(4)/2-h(4)/2;
+h(1)=x; h(2)=y; h(3) = 1.2 * h(3);
 set(gcf,'Position',h);
 
 % Choose default command line output for GINavPlot
@@ -162,7 +163,7 @@ function staname_Callback(hObject, eventdata, handles)
 %        str2double(get(hObject,'String')) returns contents of staname as a double
 station_name=get(handles.staname,'String');
 if any(station_name)
-    handles.station_name=station_name;
+    handles.staname=station_name;
     guidata(hObject,handles);
 else
     fprintf('Please re-enter the station name!!!\n');
@@ -192,7 +193,7 @@ if any(filename)
     if ~exist(snxfilename,'file')
         error('The SNX file does not exist!!!');
     end
-    handles.snxfilename=snxfilename;
+    handles.SNX=snxfilename;
     guidata(hObject,handles);
 else
    fprintf('Please reselect SNX file!!!\n');
@@ -203,8 +204,8 @@ function plotPPP_Callback(hObject, eventdata, handles)
 % hObject    handle to plotPPP (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-station_name=handles.station_name;
-snxfilename=handles.snxfilename;
+station_name=handles.staname;
+snxfilename=handles.SNX;
 solution=handles.solution;
 plot_ppp_err(solution,station_name,snxfilename);
 
