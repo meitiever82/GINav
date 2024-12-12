@@ -62,6 +62,7 @@ handles.file=gls.default_file;
 % set GUI figure position
 H=get(0,'ScreenSize'); h=get(gcf,'Position');
 x=H(3)/2-h(3)/2; y=H(4)/2-h(4)/2; h(1)=x; h(2)=y;
+h(3)=1.2*h(3);
 set(gcf,'Position',h);
 
 % Choose default command line output for GINavCfg

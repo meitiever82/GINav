@@ -1,0 +1,11 @@
+*.o
+*.obs
+*.ini
+*.local
+Release
+Release_Build
+Debug_Build
+__history
+
+data/data_mgex
+data/data_cpt
